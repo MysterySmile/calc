@@ -16,12 +16,16 @@ args.removeFirst() // remove the name of the program
 //print( CommandLine.arguments[1])
 var ar1 = CommandLine.arguments[1]
 ar1=ar1 + "L"
-//let decimalCharacters = CharacterSet.decimalDigits
-let decimalCharacters = CharacterSet.letters
-let decimalRange = ar1.rangeOfCharacter(from: decimalCharacters)
 
-if decimalRange != nil {
-    print("Numbers found")
-}else{
-    print("nothing found")
+extension String {
+    var containsWhitespace : Bool {
+        return(self.rangeOfCharacter(from: .whitespacesAndNewlines) != nil)
+    }
+    var containLetters :Bool{
+        return(self.rangeOfCharacter(from: CharacterSet.letters) != nil)
+    }
 }
+print("this contain white space ", ar1.containsWhitespace)
+print("This contain letter " ,ar1.containLetters)
+//let decimalCharacters = CharacterSet.decimalDigits
+
